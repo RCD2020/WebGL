@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{{ title }}</title>
+
+        <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+        <!-- <script src="{{ url_for('static', filename='download.js') }}" defer></script> -->
+    </head>
+
+    <body>
+        <canvas class="glslCanvas" id="glslCanvas" data-fragment="{{ shader }}" width="1425" height="805"></canvas>
+    </body>
+</html>

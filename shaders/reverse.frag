@@ -19,10 +19,10 @@ void main() {
     vec2 st = gl_FragCoord.xy / u_resolution;
 
     gl_FragColor = vec4(
-        0.0,
+        abs(cos(u_time)),
         removeNegative((reverse(st.x) - step(st.y, 0.5))) +
         removeNegative((st.x - reverse(step(st.y, 0.5)))),
-        0.0,
+        abs(sin(u_time)),
         1.0
     );
 }

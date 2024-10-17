@@ -13,11 +13,11 @@ void main() {
     u_time;
 
     vec2 st = gl_FragCoord.xy / u_resolution;
+    float value = rand(st);
+    vec3 color = vec3(value);
 
     gl_FragColor = vec4(
-        rand(st),
-        rand(st.yx),
-        rand(st.xx),
+        color,
         1.0
     );
 }

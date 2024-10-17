@@ -7,10 +7,21 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 
 
-#define PI 3.14159265359
+#define N1 7.5625
+#define D1 2.75
 
-float easeInSine(float num) {
-    return 1.0 - cos((num * PI) / 2.0);
+float easeOutBounce(float num) {
+    float value;
+
+    if (num < 1.0 / D1) {
+        return N1 * num * num;
+    } else if (num < 2.0 / D1) {
+        return N1 * (num -= 1.5 / D1) * num + 0.75;
+    } else if (num < 2.5 / D1) {
+        return N1 * (num -= 2.25 / D1) * num + 0.9375;
+    } else {
+        return N1 * (num -= 2.625 / D1) * num + 0.984375;
+    }
 }
 
 
@@ -27,7 +38,7 @@ vec3 colorB = vec3(
 
 
 void main() {
-    float pct = easeInSine(u_time);
+    float pct = easeOutBounce(u_time);
 
     vec3 color = mix(colorA, colorB, pct);
 

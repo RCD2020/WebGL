@@ -38,7 +38,7 @@ vec3 colorB = vec3(
 
 
 void main() {
-    float pct = easeOutBounce(u_time);
+    float pct = easeOutBounce(abs(sin(u_time)));
 
     vec3 color = mix(colorA, colorB, pct);
 

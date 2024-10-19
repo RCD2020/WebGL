@@ -6,7 +6,7 @@ uniform float u_time;
 uniform vec2 u_resolution;
 
 float rand(vec2 st) {
-    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    return fract(sin(dot(st.xy * abs(sin(u_time)), vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 void main() {

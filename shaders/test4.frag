@@ -10,9 +10,9 @@ void main() {
     vec2 st = gl_FragCoord.xy / u_resolution;
 
     gl_FragColor = vec4(
-        abs(sin(st.x * 20.0 + u_time * -2.0)),
-        abs(sin(st.y * 20.0 + u_time * 20.0)),
-        abs(sin(st.x * 20.0 + u_time * 2.0)),
+        abs(sin(st.x * 20.0)),
+        abs(sin(u_time)),
+        abs(cos(st.x * 20.0)),
         1.0
     );
 }

@@ -27,7 +27,7 @@ void main() {
     // use polar coords instead of cartesian
     vec2 toCenter = vec2(0.5) - st;
     float radius = length(toCenter) * 2.0;
-    float angle = atan(toCenter.y, toCenter.x) + u_time * radius;
+    float angle = atan(toCenter.y, toCenter.x) + u_time * radius * pow(2.0, u_time);
 
     // map the angle (-PI to PI) to the Hue (from 0 to 1)
     // and the Saturation to the radius

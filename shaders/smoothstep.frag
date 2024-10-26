@@ -7,6 +7,11 @@ uniform vec2 u_mouse;
 uniform float u_time;
 
 
+float smoothCos(float value) {
+    return (cos(value) + 1.0) / 2.0;
+}
+
+
 void main() {
     u_time;
     vec2 st = gl_FragCoord.xy / u_resolution;
@@ -18,9 +23,9 @@ void main() {
     ) + abs(
         smoothstep(0.6, 0.9, st.x)
         * smoothstep(0.6, 0.9, st.y)
-    ) - abs(cos(u_time)));
-    float g = abs(smoothstep(0.3, 0.7, st.x) - abs(cos(u_time)));
-    float b = abs(smoothstep(0.3, 0.7, st.y) - abs(cos(u_time)));
+    ) - smoothCos(u_time));
+    float g = abs(smoothstep(0.3, 0.7, st.x) - smoothCos(u_time));
+    float b = abs(smoothstep(0.3, 0.7, st.y) - smoothCos(u_time));
 
 
     gl_FragColor = vec4(
